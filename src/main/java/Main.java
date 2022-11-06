@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,8 +18,10 @@ public class Main {
         WebElement e1 = driver.findElement(By.xpath("//div[@data-zone-name='catalog']"));
         e1.click();
 
-        WebElement e2 = driver.findElement(By.xpath("//li[@class='_1OZYk _1imc9 cia-cs']"));
-        e2.click();
+        Actions actions =new Actions(driver);
+
+        WebElement e2 = driver.findElement(By.xpath("//*[@id='catalogPopup']/div/div/div/div/div/div/div[1]/div/ul/li[4]"));
+        actions.moveToElement(e2).click().build().perform();
 
         WebElement e3 = driver.findElement(By.xpath("//a[@href='https://market.yandex.ru/catalog--smartfony-i-gadzhety/26893630']"));
         e3.click();
